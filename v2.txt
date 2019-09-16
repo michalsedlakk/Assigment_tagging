@@ -1,0 +1,90 @@
+#First instance with all three tags:
+
+response = client.create_tags(
+    DryRun=True|False,
+    Resources=[
+        'i-0971488a2f9b50d39',
+    ],
+    Tags=[
+        {
+            'Key': 'Product',
+            'Value': 'Infor_assigment'
+        },
+		{
+            'Key': 'Owner',
+            'Value': 'Michal'
+        },
+		{
+            'Key': 'Contact email',
+            'Value': 'michal@example.com'
+        },
+    ]
+)
+
+#EC2 instance without tag “Product” set up
+
+response = client.create_tags(
+    DryRun=True|False,
+    Resources=[
+        'i-0971488a2f9b50d40',
+    ],
+    Tags=[
+      
+		{
+            'Key': 'Owner',
+            'Value': 'Michal'
+        },
+		{
+            'Key': 'Contact email',
+            'Value': 'michal@example.com'
+        },
+    ]
+)
+
+
+#EC2 instances with empty “Owner” tag and with “Petr Poraj” in the “Contact mail”
+
+response = client.create_tags(
+    DryRun=True|False,
+    Resources=[
+        'i-0971488a2f9b50d41',
+    ],
+    Tags=[
+        {
+            'Key': 'Product',
+            'Value': 'Infor_assigment'
+        },
+		{
+            'Key': 'Owner',
+            'Value': ''
+        },
+		{
+            'Key': 'Contact email',
+            'Value': 'Peter Poraj'
+        },
+    ]
+)
+
+#EC2 has tag “Product” set up, but has no value in it – empty tag
+
+response = client.create_tags(
+    DryRun=True|False,
+    Resources=[
+        'i-0971488a2f9b50d42',
+    ],
+    Tags=[
+        {
+            'Key': 'Product',
+            'Value': ''
+        },
+		{
+            'Key': 'Owner',
+            'Value': 'Michal'
+        },
+		{
+            'Key': 'Contact email',
+            'Value': 'peter.poraj@example.com'
+        },
+    ]
+)
+

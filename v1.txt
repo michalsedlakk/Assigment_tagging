@@ -1,0 +1,49 @@
+#AWS CLI:
+
+#First instance with all three tags:
+
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d39 --tags Key=Product,Value=Infor_Assigment
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d39 --tags Key=Owner,Value=Michal
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d39 --tags Key=Contact email,Value=petr.poraj@example.com
+	
+	
+#Second instance without tag Product set up:
+
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d40 --tags Key=Owner,Value=Michal
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d40 --tags Key=Contact email,Value=petr.poraj@example.com
+	
+
+	
+#Third EC2 instance with empty “Owner” tag and with “Petr Poraj” in the “Contact mail”
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d41 --tags Key=Product,Value=Infor_Assigment
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d41 --tags Key=Owner,Value=
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d41 --tags Key=Contact email,Value=petr.poraj@example.com
+	
+
+	
+#EC2 has tag “Product” set up, but has no value in it – empty tag
+
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d42 --tags Key=Product,Value=
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d42 --tags Key=Owner,Value=Michal
+	
+aws ec2 create-tags \
+    --resources i-0971488a2f9b50d42 --tags Key=Contact email,Value=petr.poraj@example.com	
+	
+	

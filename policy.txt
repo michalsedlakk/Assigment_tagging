@@ -1,0 +1,26 @@
+#All instances have key and value as Key=Infor, Value=assigment, this was standardization process while creating instances
+#The following policy allows users to use the CreateTags action to apply tags to an instance only if the tag contains the key Infor and the value Assigment.
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags"
+            ],
+            "Resource": "arn:aws:ec2:region:account:instance1/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/Assigment": "Infor"
+                },
+                "ForAllValues:StringEquals": {
+                    "aws:TagKeys": [
+                        "Assigment"
+                    ]
+                }
+            }
+        }
+    ]
+}

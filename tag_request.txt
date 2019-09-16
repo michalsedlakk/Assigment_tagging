@@ -1,0 +1,46 @@
+#Tag Request
+
+#Instance with all three tags defined
+
+&ResourceId=i-0971488a2f9b50d39
+&Tag.1.Key=Product
+&Tag.1.Value=Infor_Assigment
+&Tag.2.Key=Owner
+&Tag.2.Value=Michal
+&Tag.3.Key=Contact email
+&Tag.3.Value=michal@example.com
+&AUTHPARAMS
+
+
+#EC2 instance without tag “Product” set up:
+
+&ResourceId=i-0971488a2f9b50d40
+&Tag.1.Key=Owner
+&Tag.1.Value=Michal
+&Tag.2.Key=Contact email
+&Tag.2.Value=michal@example.com
+&AUTHPARAMS
+
+
+#EC2 instances with empty “Owner” tag and with “Petr Poraj” in the “Contact mail”:
+
+&ResourceId=i-0971488a2f9b50d41
+&Tag.1.Key=Product
+&Tag.1.Value=Infor_Assigment
+&Tag.2.Key=Owner
+&Tag.2.Value=
+&Tag.3.Key=Contact email
+&Tag.3.Value=Petr Poraj
+&AUTHPARAMS
+
+
+#EC2 has tag “Product” set up, but has no value in it – empty tag
+
+&ResourceId=i-0971488a2f9b50d42
+&Tag.1.Key=Product
+&Tag.1.Value=
+&Tag.2.Key=Owner
+&Tag.2.Value=Michal
+&Tag.3.Key=Contact email
+&Tag.3.Value=michal@example.com
+&AUTHPARAMS

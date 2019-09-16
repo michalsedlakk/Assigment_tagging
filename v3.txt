@@ -1,0 +1,54 @@
+#Instance with all tags set up:
+
+
+import boto3
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d39','Product','default_app')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d39','Owner','admin')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d39','Contact email','petr.poraj@example.com')
+
+
+
+#EC2 instance without tag “Product” set up:
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d42','Owner','admin')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d42','Contact Email','petr.poraj@example.com')
+
+
+
+#Following instances below can throw an error due to a misconfigured tagging policy.
+#resource_id, key and value MUST be set according to correct naming convention within AWS boto3 syntax requirements
+
+#EC2 instances with empty “Owner” tag and with “Petr Poraj” in the “Contact mail”:
+
+
+''.isprintable()				#Note: This is the only .isxxxx() method that returns True if s is an empty string. All the others return False for an empty string.
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d44','','admin')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d44','Product','default_app')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d44','Contact email','petr.poraj@example.com')
+
+
+#EC2 has tag “Product” set up, but has no value in it – empty tag:
+#The VALUE parameter is required, but if you don't want the tag to have a value, I have specified the parameter with no value, and AWS will set the value to an empty string.
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d46','Product','')   									
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d46','Owner','admin')
+
+ec2 = boto3.resource('ec2')
+tag = ec2.Tag('i-0971488a2f9b50d46','Contact email','petr.poraj@example.com')
